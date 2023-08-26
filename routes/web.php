@@ -37,6 +37,18 @@ route::get('/Insert/create', [ProductController::class, 'Insert'])->name('Insert
 Route::post('/Insert/store', [ProductController::class, 'store'])->name('store');
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 Route::get('/ProductList', function(){
     return view('ProductList');
 });
