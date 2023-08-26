@@ -52,7 +52,8 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <button type="submit" class="btn btn-primary ml-3">Submit</button>
+            <x-primary-button>{{ __('Save') }}</x-primary-button>
+
         </div>
     </div>
 </div>

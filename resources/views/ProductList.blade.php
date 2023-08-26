@@ -25,5 +25,43 @@
                                         </p>
                                     </header>
     </div>
+    <div class="m-4">
+        @if($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{$Message}}</p>
+        </div>
+        @endif
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">{{ __("Product Name") }}</th>
+                    <th scope="col">{{ __("Product Description") }}</th>
+                    <th scope="col">{{ __("Product Quantity") }}</th>
+                    <th scope="col">{{ __("Product Price") }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($products as $product)
+                <tr>
+                    <td>{{ $product->name }}</td>
+                    <td>{{ $product->description }}</td>
+                    <td>{{ $product->quantity }}</td>
+                    <td>{{ $product->price }}</td>
+                </tr>
+                <tr>
+                <td>
+                <form action="{{ route('ProductList.destroy', $product->id)}}" method="post">
+                    <a class="btn btn-primary" href="{{route('ProductList.edit', $product->id)}}">Edit</a>
+                    @csrf
+                    @method('DELETE')
+
+                    <button type="submit" class="btn btn-danger"> Deleted </button>
+                </form>
+            </td>
+            <tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 <!-- End View Table Products -->
 </x-app-layout>
