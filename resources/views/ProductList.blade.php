@@ -49,11 +49,13 @@
                     <td>{{ $product->price }}</td>
                     <td>
                         <form action="{{ route('ProductList.destroy', $product->id)}}" method="post">
+
                             <a class="btn btn-primary" href="{{route('ProductList.edit', $product->id)}}">Edit</a>
                             @csrf
                             @method('DELETE')
-
-                            <button type="submit" class="btn btn-danger"> Deleted </button>
+                            <x-danger-button class="ml-3">
+                                {{ __('Delete') }}
+                            </x-danger-button>
                         </form>
                     </td>
                 </tr>
