@@ -40,12 +40,13 @@ Route::get('/ProductList', function(){
     return view('ProductList');
 });
 
-Route::get('/ProductList/Index', [ProductController::class, 'ProductList'])->name('ProductList');
 
-route::group(['as' =>"ProductList",], function()
+
+route::group(['as' =>"ProductList.",], function()
 {
-    route::get('/ProductList',['uses' => 'ProductController@Insert', 'as' => 'Insert']);
-    route::get('/ProductList/create',['uses' => 'ProductController@Insert/Create', 'as' => 'Insert']);
+    // Route::get('/ProductList', [ProductController::class, 'ProductList'])->name('ProductList');//index
+    route::get('/ProductList',['uses' => 'ProductController@ProductList', 'as' => 'index']);
+    route::get('/ProductList/create',['uses' => 'ProductController@Insert', 'as' => 'Insert']);
     route::get('/ProductList/edit/{id}',['uses' => 'ProductController@Insert/edit', 'as' => 'edit']);
     route::post('/ProductList/store',['uses' => 'ProductController@Insert/store', 'as' => 'store']);
     route::delete('/ProductList/{id}',['uses' => 'ProductController@Destroy', 'as' => 'destroy']);

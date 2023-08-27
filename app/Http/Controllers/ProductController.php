@@ -14,13 +14,13 @@ class ProductController extends Controller
     public function Insert()
     {
         // $contacts = Contact::all();
-        
+
         return view('insert');
     }
     public function ProductList()
     {
          $data['products'] = Product_model::orderBy('id', 'asc')->paginate(5);
-        return view('productlist', $data); 
+        return view('productlist', $data);
     }
     public function store(Request $request):RedirectResponse{
         $request->validate([
@@ -35,7 +35,7 @@ class ProductController extends Controller
         $product->quantity = $request->quantity;
         $product->description = $request->description;
         $product->save();
-        return redirect()->route('ProductList');
+        return redirect()->route('ProductList.index');
     }
     public function show(Product_model $product)
     {
@@ -60,13 +60,13 @@ class ProductController extends Controller
         $product -> quantity = $request->quantity;
         $product -> description = $request->description;
         $product -> save();
-        return redirect()->route('ProductList');
+        return redirect()->route('ProductList.index');
     }
 
     public function destroy(Product_model $product, $id)
     {
         $product = Product_model::find($id);
         $product->delete();
-        return redirect()->route('ProductList');
+        return redirect()->route('ProductList.index');
     }
 }

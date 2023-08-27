@@ -47,18 +47,16 @@
                     <td>{{ $product->description }}</td>
                     <td>{{ $product->quantity }}</td>
                     <td>{{ $product->price }}</td>
-                </tr>
-                <tr>
-                <td>
-                <form action="{{ route('ProductList.destroy', $product->id)}}" method="post">
-                    <a class="btn btn-primary" href="{{route('ProductList.edit', $product->id)}}">Edit</a>
-                    @csrf
-                    @method('DELETE')
+                    <td>
+                        <form action="{{ route('ProductList.destroy', $product->id)}}" method="post">
+                            <a class="btn btn-primary" href="{{route('ProductList.edit', $product->id)}}">Edit</a>
+                            @csrf
+                            @method('DELETE')
 
-                    <button type="submit" class="btn btn-danger"> Deleted </button>
-                </form>
-            </td>
-            <tr>
+                            <button type="submit" class="btn btn-danger"> Deleted </button>
+                        </form>
+                    </td>
+                </tr>
                 @endforeach
             </tbody>
         </table>
