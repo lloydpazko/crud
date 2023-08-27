@@ -13,6 +13,8 @@ class ProductController extends Controller
     /* URL links route */
     public function Insert()
     {
+        // $contacts = Contact::all();
+         $data['products'] = Product_model::orderBy('id', 'asc')->paginate(5);
         return view('insert');
     }
     public function ProductList()
