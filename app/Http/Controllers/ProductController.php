@@ -15,7 +15,7 @@ class ProductController extends Controller
     {
         // $contacts = Contact::all();
          $data['products'] = Product_model::orderBy('id', 'asc')->paginate(5);
-        return view('insert');
+        return view('insert', $data);
     }
     public function ProductList()
     {
