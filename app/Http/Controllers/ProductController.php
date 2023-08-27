@@ -50,8 +50,8 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => ['required','string','max:255'],
-            'price' => ['required','numeric','max:255'],
-            'quantity' => ['required','numeric','max:255'],
+            'price' => ['required','string','max:255'],
+            'quantity' => ['required','string','max:255'],
             'description' => ['required','string','max:255']
         ]);
         $product = Product_model::find($id);

@@ -25,32 +25,58 @@
                                         </p>
                                     </header>
     </div>
+    <style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 15px;
+        text-align: center;
+        font-color: #f8f4f4
+    }
+
+    th {
+        background-color: #1d1e1d;
+        color: rgb(241, 233, 233);
+    }
+
+    tr:nth-child(even) {
+        background-color: #1f1d1d;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+        </style>
     <div class="m-4">
         @if($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{$Message}}</p>
         </div>
         @endif
-        <table class="table table-bordered">
+        <table class="table table-dark">
             <thead>
                 <tr>
                     <th scope="col">{{ __("Product Name") }}</th>
-                    <th scope="col">{{ __("Product Description") }}</th>
-                    <th scope="col">{{ __("Product Quantity") }}</th>
                     <th scope="col">{{ __("Product Price") }}</th>
+                    <th scope="col">{{ __("Product Quantity") }}</th>
+                    <th scope="col">{{ __("Product Description") }}</th>
+                    <th scope="col">{{ __("ACTION") }}</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($products as $product)
                 <tr>
                     <td>{{ $product->name }}</td>
-                    <td>{{ $product->description }}</td>
-                    <td>{{ $product->quantity }}</td>
                     <td>{{ $product->price }}</td>
+                    <td>{{ $product->quantity }}</td>
+                    <td>{{ $product->description }}</td>
                     <td>
                         <form action="{{ route('ProductList.destroy', $product->id)}}" method="post">
-
-                            <a class="btn btn-primary" href="{{route('ProductList.edit', $product->id)}}">Edit</a>
+                            <x-primary-button>
+                            <a class="btn btn-success" href="{{route('ProductList.edit', $product->id)}}">Edit</a>
+                            </x-primary-button>
                             @csrf
                             @method('DELETE')
                             <x-danger-button class="ml-3">
