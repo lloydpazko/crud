@@ -20,7 +20,7 @@ class ProductController extends Controller
     public function ProductList()
     {
          $data['products'] = Product_model::orderBy('id', 'asc')->paginate(5);
-        return view('productlist' $data);
+        return view('productlist' $data); 
     }
     public function store(Request $request):RedirectResponse{
         $request->validate([
