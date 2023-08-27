@@ -14,12 +14,13 @@ class ProductController extends Controller
     public function Insert()
     {
         // $contacts = Contact::all();
-         $data['products'] = Product_model::orderBy('id', 'asc')->paginate(5);
-        return view('insert', $data);
+        
+        return view('insert');
     }
     public function ProductList()
     {
-        return view('productlist');
+         $data['products'] = Product_model::orderBy('id', 'asc')->paginate(5);
+        return view('productlist' $data);
     }
     public function store(Request $request):RedirectResponse{
         $request->validate([
