@@ -13,7 +13,6 @@
                 </div>
             </div>
         </div>
-<!-- End View Table Products -->
                     <div class="py-12">
                         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
@@ -25,6 +24,7 @@
                                         </p>
                                     </header>
     </div>
+    <!-- End View Table Products -->
     <style>
     table, th, td {
         border: 1px solid black;
@@ -32,7 +32,7 @@
     }
     th, td {
         padding: 15px;
-        text-align: center;
+        text-align: inherit;
         font-color: #f8f4f4
     }
 
@@ -48,7 +48,37 @@
     tr:hover {
         background-color: #ddd;
     }
-        </style>
+
+    .container-fluid {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .pull-right {
+        float: left;
+    }
+
+    .btn-primary {
+        background-color: #e5eee5;
+        color: rgb(241, 233, 233);
+    }
+
+    .btn-primary
+    {
+        background-color: #e5eee5;
+        color: rgb(241, 233, 233);
+    }
+    </style>
+        <div class="container mt-2">
+            <div class="row">
+                <div class="col-lg-12 margin-tb">
+                    <div class="pull-left">
+                        <h2>Product Details</h2>
+                    </div>
+                    <div class="pull-right">
+                        <a class="btn btn-primary" href="{{ route('Insert') }}"> Create a New Product</a>
+                    </div>
+                </div>
     <div class="m-4">
         @if($message = Session::get('success'))
         <div class="alert alert-success">
