@@ -44,7 +44,7 @@ class ProductController extends Controller
     public function edit(Product_model $product, $id)
     {
         $product = Product_model::find($id);
-        return view('ProductList.edit');
+        return view('edit');
     }
     public function update(Request $request, $id)
     {

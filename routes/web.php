@@ -47,7 +47,7 @@ route::group(['as' =>"ProductList.",], function()
     // Route::get('/ProductList', [ProductController::class, 'ProductList'])->name('ProductList');//index
     route::get('/ProductList',['uses' => 'ProductController@ProductList', 'as' => 'index']);
     route::get('/ProductList/create',['uses' => 'ProductController@Insert', 'as' => 'Insert']);
-    route::get('/ProductList/edit/{id}',['uses' => 'ProductController@Insert/edit', 'as' => 'edit']);
-    route::post('/ProductList/store',['uses' => 'ProductController@Insert/store', 'as' => 'store']);
+    route::get('/ProductList/edit/{id}',['uses' => 'ProductController@edit', 'as' => 'edit']);
+    route::post('/ProductList/store',['uses' => 'ProductController@store', 'as' => 'store']);
     route::delete('/ProductList/{id}',['uses' => 'ProductController@Destroy', 'as' => 'destroy']);
 });
